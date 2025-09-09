@@ -11,9 +11,10 @@
 
    <input type="text" id="inputText">
    <!-- add a button here for adding new item -->
+   <button onclick="onSubmitForm()">Enter</button>
 
-   <ul>
-      <li>Notebook<!--<button>Delete</button></li>-->
+   <ul id="list">
+      <li>Notebook</li>
       <li>Jello</li>
       <li>Spinach</li>
       <li>Rice</li>
@@ -23,8 +24,35 @@
 
    <script>
 
-      // add code here
+      let itemList = document.getElementById("list");
+      for (listItem of itemList.children) {
+         var deleteButton = document.createElement("button");
+         deleteButton.appendChild(document.createTextNode("Delete"));
+         deleteButton.onclick = deleteItem;
+         listItem.appendChild(deleteButton);
+      }
 
+      // add code here
+      function deleteItem() {
+         this.parentElement.remove();
+      }
+      function onSubmitForm() {
+         if (document.getElementsByTagName("input")[0].value !== "") {
+            let newItem = document.getElementsByTagName("input")[0].value;
+
+            var listTag = document.createElement("li");
+            var node = document.createTextNode(newItem + " ")
+            listTag.appendChild(node);
+
+            var deleteButton = document.createElement("button");
+            deleteButton.appendChild(document.createTextNode("Delete"));
+            deleteButton.onclick = deleteItem;
+            listTag.appendChild(deleteButton);
+
+            var documentList = document.getElementById("list");
+            documentList.appendChild(listTag);
+         }
+      }
    </script>
 
 </body>

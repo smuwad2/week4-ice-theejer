@@ -19,6 +19,16 @@
     <script>
         
         // add code here
+        var dropdown = document.getElementById("select_item");
+        dropdown.addEventListener("change", addToShopList);
+
+        function addToShopList(){
+            let newItem = this.value;
+            let node = document.createTextNode(newItem);
+            let newListItem = document.createElement("li");
+            newListItem.append(node);
+            document.getElementById("shopList").append(newListItem);
+        }
         
         
     </script>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>Shopping List</h2>
+    <p>Get it done today</p>
+
+        <input type="text" name="thing">
+        <button onclick="onSubmitForm()">Submit</button>
+
+    <ul id="list">
+
+    </ul>
+    <script>
+        function onSubmitForm(){
+            if (document.getElementsByTagName("input")[0].value !== ""){
+                let newItem = document.getElementsByTagName("input")[0].value;
+
+                var listTag = document.createElement("li");
+                var node = document.createTextNode(newItem)
+                listTag.appendChild(node);
+
+                var documentList = document.getElementById("list");
+                documentList.appendChild(listTag);
+            }
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
